@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mingyi Liu | Product, Research, Build",
+  title: {
+    default: "Mingyi Liu — Product, Research, Build",
+    template: "%s — Mingyi Liu",
+  },
   description:
     "Mingyi Liu builds products, researches biomedical laser technologies, and turns ideas into practical tools.",
 };
@@ -28,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

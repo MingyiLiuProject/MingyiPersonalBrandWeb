@@ -1,27 +1,47 @@
 export function OpticField() {
   return (
-    <div className="relative min-h-[360px] overflow-hidden border-y border-[var(--foreground)] bg-[var(--deep)] text-white">
-      <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]" />
-      <div className="absolute left-[-12%] top-1/2 h-2 w-[128%] -translate-y-1/2 rotate-[-12deg] bg-[#f7d354] shadow-[0_0_40px_rgba(247,211,84,0.72)]" />
-      <div className="absolute right-[16%] top-[16%] h-[70%] w-10 rounded-[50%] border border-[#7ed7c1] bg-[#7ed7c1]/20 shadow-[0_0_36px_rgba(126,215,193,0.38)]" />
-      <div className="absolute bottom-[12%] left-[9%] h-24 w-24 border border-[#e44d26] bg-[#e44d26]/15" />
-      <div className="absolute right-[8%] top-[54%] h-32 w-32 border border-white/60" />
-      <div className="relative z-10 flex min-h-[360px] items-end justify-between gap-8 p-6 sm:p-10">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7ed7c1]">
-            Product / Research / Build
-          </p>
-          <p className="mt-4 max-w-sm text-3xl font-semibold leading-tight">
-            A practical system for serious work and strange ideas.
-          </p>
-        </div>
-        <div className="hidden max-w-[210px] border border-white/40 p-4 font-mono text-xs leading-6 text-white/75 md:block">
-          SIGNAL: useful tools
-          <br />
-          MEDIUM: web, optics, AI
-          <br />
-          MODE: build in public
-        </div>
+    <div
+      className="hairline-grid relative min-h-[440px] overflow-hidden rounded-[1.75rem] bg-[var(--deep)] text-white shadow-[0_28px_80px_rgba(16,35,29,0.18)] sm:min-h-[520px]"
+      role="img"
+      aria-label="Abstract optical experiment with a laser beam, lens, and moving signals"
+    >
+      <div className="absolute left-6 top-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">
+        <span className="size-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]" />
+        Live optical field
+      </div>
+
+      <div className="absolute right-6 top-6 font-mono text-[10px] text-white/35">λ / 532 NM</div>
+
+      <div className="absolute left-[-8%] top-[41%] h-px w-[70%] rotate-[8deg] bg-[var(--accent)] optic-beam" />
+      <div className="absolute left-[50%] top-[48%] h-px w-[62%] -rotate-[13deg] bg-[var(--accent)] optic-beam" />
+
+      <div className="optic-float absolute left-[45%] top-[25%] h-[48%] w-11 rounded-[50%] border border-[var(--accent)] bg-[var(--accent)]/10 shadow-[0_0_45px_rgba(200,241,105,0.2)]">
+        <div className="absolute inset-y-4 left-1/2 w-px bg-[var(--accent)]/45" />
+      </div>
+
+      <div className="optic-orbit absolute -right-20 top-[21%] size-64 rounded-full border border-white/15 sm:-right-12 sm:size-80">
+        <span className="absolute left-1/2 top-[-4px] size-2 rounded-full bg-[var(--blue)] shadow-[0_0_16px_var(--blue)]" />
+        <div className="absolute inset-8 rounded-full border border-dashed border-white/10" />
+      </div>
+
+      <div className="absolute bottom-28 left-7 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60 sm:left-9">
+        Input: complex systems
+      </div>
+      <div className="absolute bottom-28 right-7 rounded-full bg-[var(--accent)] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--deep)] sm:right-9">
+        Output: clarity
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 grid grid-cols-3 border-t border-white/10 bg-black/10">
+        {[
+          ["01", "Observe"],
+          ["02", "Frame"],
+          ["03", "Build"],
+        ].map(([index, label]) => (
+          <div key={index} className="border-r border-white/10 p-4 last:border-0 sm:p-5">
+            <p className="font-mono text-[9px] text-[var(--accent)]">{index}</p>
+            <p className="mt-1 text-xs font-medium text-white/80 sm:text-sm">{label}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

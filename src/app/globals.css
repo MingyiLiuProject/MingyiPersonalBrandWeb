@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f3ea;
-  --foreground: #121212;
-  --muted: #67625a;
-  --line: #d8d0c1;
-  --panel: #fffaf0;
-  --accent: #e44d26;
-  --signal: #16a085;
-  --deep: #152832;
+  --background: #f4f3ee;
+  --foreground: #10231d;
+  --muted: #66706b;
+  --line: #ccd1cb;
+  --panel: #e9ebe5;
+  --accent: #c8f169;
+  --accent-dark: #7ca72a;
+  --signal: #ff6542;
+  --blue: #6675f7;
+  --deep: #10231d;
 }
 
 @theme inline {
@@ -18,17 +20,140 @@
   --font-mono: var(--font-geist-mono);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
+  margin: 0;
+  background:
+    radial-gradient(circle at 75% -10%, rgba(200, 241, 105, 0.2), transparent 28rem),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--deep);
+  color: var(--accent);
 }
 
 a {
   text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.display-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.hairline-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.page-shell {
+  margin-inline: auto;
+  width: min(100% - 2.5rem, 78rem);
+}
+
+.page-intro {
+  padding-block: clamp(4.5rem, 11vw, 9rem) clamp(3.5rem, 7vw, 6rem);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.8rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.optic-beam {
+  animation: beam-pulse 4s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.optic-orbit {
+  animation: orbit-spin 18s linear infinite;
+}
+
+.optic-float {
+  animation: optic-float 6s ease-in-out infinite;
+}
+
+@keyframes beam-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(200, 241, 105, 0.6));
+    opacity: 0.72;
+  }
+  50% {
+    filter: drop-shadow(0 0 13px rgba(200, 241, 105, 0.95));
+    opacity: 1;
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes optic-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 2rem, 78rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
