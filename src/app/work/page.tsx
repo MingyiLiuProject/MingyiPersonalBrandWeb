@@ -10,30 +10,24 @@ export default function WorkPage() {
   return (
     <main>
       <SiteHeader />
-      <section className="page-shell grid gap-12 py-16 lg:grid-cols-[1.4fr_0.6fr] lg:items-end lg:py-24">
-        <div>
-          <p className="micro-label text-[var(--accent)]">Selected archive / 2018—Now</p>
-          <h1 className="text-balance mt-7 text-[clamp(4rem,9vw,9rem)] font-medium leading-[0.84] tracking-[-0.085em]">Work across <span className="display-serif text-[var(--blue)]">systems.</span></h1>
-        </div>
-        <p className="max-w-sm border-t border-[var(--foreground)] pt-5 text-sm leading-7 text-[var(--muted)] lg:justify-self-end">From laser systems to product systems — selected research and industry work, presented with temporary concept imagery.</p>
+      <section className="page-shell pb-14 pt-12 sm:pb-20 sm:pt-16">
+        <h1 className="display-serif text-5xl font-semibold tracking-[-0.055em] sm:text-7xl">selected work.</h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">A small archive of research and product work across biomedical optics, consumer technology, and intelligent mobility.</p>
       </section>
 
-      <section className="page-shell pb-28">
-        <div className="space-y-20">
-          {featuredWork.map((item) => (
-            <article key={item.title}>
-              <div className="image-grain relative aspect-[16/8] overflow-hidden bg-black">
-                <Image src={item.image} alt={`Concept placeholder for ${item.title}`} fill sizes="100vw" className="object-cover transition duration-700 hover:scale-[1.02]" style={{ objectPosition: item.imagePosition }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <p className="micro-label absolute left-5 top-5 border border-white/30 bg-black/20 px-3 py-2 text-white/65 backdrop-blur-sm">Concept placeholder</p>
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-5 text-white sm:p-9">
-                  <div><p className="micro-label text-white/55">{item.index} / {item.type}</p><h2 className="mt-3 text-4xl font-medium tracking-[-0.06em] sm:text-7xl">{item.title}</h2></div>
-                  <p className="micro-label hidden text-right text-white/60 sm:block">{item.year}<br />{item.signal}</p>
-                </div>
+      <section className="page-shell">
+        <div className="grid gap-5 md:grid-cols-2">
+          {featuredWork.map((item, index) => (
+            <article key={item.title} className={`garden-card bg-[var(--paper)] ${index === 0 ? "md:col-span-2" : ""}`}>
+              <div className={`image-grain relative bg-black ${index === 0 ? "aspect-[16/7]" : "aspect-[4/3]"}`}>
+                <Image src={item.image} alt={`Concept placeholder for ${item.title}`} fill sizes={index === 0 ? "100vw" : "50vw"} className="object-cover transition duration-700 hover:scale-[1.025]" />
+                <span className="micro-label absolute left-4 top-4 rounded-full bg-white/85 px-3 py-2 backdrop-blur">Concept image</span>
               </div>
-              <div className="grid gap-5 border-b border-[var(--foreground)] py-6 md:grid-cols-[0.65fr_1.35fr]">
-                <p className="micro-label text-[var(--muted)]">Context / Contribution</p>
-                <p className="max-w-2xl text-base leading-7 text-[var(--muted)]">{item.summary}</p>
+              <div className="p-6 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-3"><p className="micro-label text-[var(--accent)]">{item.type}</p><p className="text-xs text-[var(--muted)]">{item.year}</p></div>
+                <h2 className="display-serif mt-4 text-4xl font-semibold tracking-[-0.045em]">{item.title}</h2>
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-[var(--muted)]">{item.summary}</p>
+                <p className="mt-6 text-sm font-medium">Read case study ↗</p>
               </div>
             </article>
           ))}

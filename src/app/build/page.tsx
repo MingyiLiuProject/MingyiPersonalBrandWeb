@@ -9,21 +9,16 @@ export default function BuildPage() {
   return (
     <main>
       <SiteHeader />
-      <section className="bg-[var(--blue)] text-white">
-        <div className="page-shell flex min-h-[72svh] flex-col justify-between py-12 lg:py-16">
-          <div className="flex items-center justify-between"><p className="micro-label">Build log / 2026</p><p className="micro-label text-white/55">Experiments in progress</p></div>
-          <h1 className="text-balance max-w-7xl text-[clamp(4rem,9vw,9rem)] font-medium leading-[0.84] tracking-[-0.085em]">Small tools for <span className="display-serif text-[#ffb9a9]">real friction.</span></h1>
-          <p className="max-w-md text-sm leading-6 text-white/65">A working shelf of prototypes that begin with recurring problems in research and knowledge work.</p>
-        </div>
+      <section className="page-shell max-w-4xl pb-14 pt-12 sm:pb-20 sm:pt-16">
+        <h1 className="display-serif text-5xl font-semibold tracking-[-0.055em] sm:text-7xl">things I&apos;m building.</h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">Small tools growing out of recurring friction in research and knowledge work. They are intentionally unfinished.</p>
       </section>
-
-      <section className="page-shell py-24 lg:py-32">
-        <div className="border-t border-[var(--foreground)]">
+      <section className="page-shell max-w-4xl">
+        <div className="grid gap-4 sm:grid-cols-2">
           {buildItems.map((item, index) => (
-            <article key={item.title} className="group grid gap-6 border-b border-[var(--line)] py-10 md:grid-cols-[0.12fr_0.72fr_1.16fr] md:py-14">
-              <p className="micro-label text-[var(--accent)]">{item.index}</p>
-              <div><p className="micro-label text-[var(--muted)]">Experiment 0{index + 1} / {item.status}</p><h2 className="mt-5 text-4xl font-medium tracking-[-0.055em] sm:text-5xl">{item.title}</h2></div>
-              <div className="flex flex-col justify-between gap-8"><p className="max-w-xl text-base leading-7 text-[var(--muted)]">{item.summary}</p><span className="text-sm transition-transform group-hover:translate-x-1">Open note ↗</span></div>
+            <article key={item.title} className={`garden-card flex min-h-72 flex-col justify-between p-6 sm:p-8 ${index === 0 ? "bg-[var(--butter)]" : index === 1 ? "bg-[var(--blue)]" : "bg-[var(--sage)]"}`}>
+              <div className="flex items-center justify-between"><p className="micro-label text-black/40">Experiment {item.index}</p><p className="micro-label text-black/40">{item.status}</p></div>
+              <div><h2 className="display-serif text-3xl font-semibold tracking-[-0.04em]">{item.title}</h2><p className="mt-3 text-sm leading-6 text-black/55">{item.summary}</p></div>
             </article>
           ))}
         </div>
