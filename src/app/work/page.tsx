@@ -21,7 +21,6 @@ export default function WorkPage() {
             <article key={item.title} className={`garden-card bg-[var(--paper)] ${index === 0 ? "md:col-span-2" : ""}`}>
               <div className={`image-grain relative bg-black ${index === 0 ? "aspect-[16/7]" : "aspect-[4/3]"}`}>
                 <Image src={item.image} alt={`Concept placeholder for ${item.title}`} fill sizes={index === 0 ? "100vw" : "50vw"} className="object-cover transition duration-700 hover:scale-[1.025]" />
-                <span className="micro-label absolute left-4 top-4 rounded-full bg-white/85 px-3 py-2 backdrop-blur">Concept image</span>
               </div>
               <div className="p-6 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3"><p className="micro-label text-[var(--accent)]">{item.type}</p><p className="text-xs text-[var(--muted)]">{item.year}</p></div>

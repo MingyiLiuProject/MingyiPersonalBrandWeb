@@ -39,11 +39,10 @@ export default function Home() {
               <h2 className="display-serif mt-2 text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">LASER-Blade</h2>
               <p className="mt-2 max-w-lg text-sm leading-6 text-white/65">Biomedical laser research between optical engineering and clinical usefulness.</p>
             </div>
-            <span className="micro-label absolute left-5 top-5 rounded-full bg-white/85 px-3 py-2 text-black backdrop-blur">Concept image</span>
           </Link>
 
           <article className="garden-card flex min-h-56 flex-col justify-between bg-[var(--sage)] p-6 lg:col-span-5 lg:row-span-2">
-            <div className="flex items-center justify-between"><p className="micro-label text-black/45">Now</p><span className="size-2 rounded-full bg-[#657c52]" /></div>
+            <div className="flex items-center justify-between"><p className="micro-label text-black/45">Now</p><span className="size-2 rounded-full bg-[var(--accent)]" /></div>
             <div>
               <p className="display-serif text-3xl font-semibold tracking-[-0.045em]">PhD researcher</p>
               <p className="mt-2 text-sm leading-6 text-black/55">Studying biomedical optics and learning to make better questions.</p>
