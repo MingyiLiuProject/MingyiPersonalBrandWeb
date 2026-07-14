@@ -1,48 +1,43 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { featuredWork } from "@/data/site";
 
-export const metadata: Metadata = { title: "Research & Work" };
+export const metadata: Metadata = { title: "Work" };
 
 export default function WorkPage() {
   return (
     <main>
       <SiteHeader />
-      <section className="page-shell grid gap-12 pb-20 pt-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:pb-28 lg:pt-24">
+      <section className="page-shell grid gap-12 py-16 lg:grid-cols-[1.4fr_0.6fr] lg:items-end lg:py-24">
         <div>
-          <p className="section-label text-[var(--accent)]">Research &amp; work / Selected archive</p>
-          <h1 className="text-balance mt-8 max-w-5xl text-[clamp(3.7rem,8vw,7.5rem)] font-medium leading-[0.9] tracking-[-0.075em]">From product systems to <span className="display-serif text-[var(--accent)]">optical systems.</span></h1>
+          <p className="micro-label text-[var(--accent)]">Selected archive / 2018—Now</p>
+          <h1 className="text-balance mt-7 text-[clamp(4rem,9vw,9rem)] font-medium leading-[0.84] tracking-[-0.085em]">Work across <span className="display-serif text-[var(--blue)]">systems.</span></h1>
         </div>
-        <div className="border-l border-[var(--line)] pl-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--muted)]">Practice / 2018—Now</p>
-          <p className="mt-5 max-w-sm text-sm leading-7 text-[var(--muted)]">A body of work spanning biomedical laser research, consumer products, intelligent vehicles, and the systems connecting them.</p>
-        </div>
+        <p className="max-w-sm border-t border-[var(--foreground)] pt-5 text-sm leading-7 text-[var(--muted)] lg:justify-self-end">From laser systems to product systems — selected research and industry work, presented with temporary concept imagery.</p>
       </section>
 
-      <section className="border-t border-[var(--line)]">
-        {featuredWork.map((item) => (
-          <article key={item.title} className="border-b border-[var(--line)]">
-            <div className="page-shell grid gap-8 py-12 lg:grid-cols-[0.12fr_0.55fr_0.72fr_0.4fr] lg:py-16">
-              <p className="font-mono text-[9px] text-[var(--muted)]">{item.index}</p>
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--accent)]">{item.type}</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">{item.title}</h2>
-                <p className="mt-2 font-serif text-lg italic text-[var(--muted)]">{item.year}</p>
+      <section className="page-shell pb-28">
+        <div className="space-y-20">
+          {featuredWork.map((item) => (
+            <article key={item.title}>
+              <div className="image-grain relative aspect-[16/8] overflow-hidden bg-black">
+                <Image src={item.image} alt={`Concept placeholder for ${item.title}`} fill sizes="100vw" className="object-cover transition duration-700 hover:scale-[1.02]" style={{ objectPosition: item.imagePosition }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <p className="micro-label absolute left-5 top-5 border border-white/30 bg-black/20 px-3 py-2 text-white/65 backdrop-blur-sm">Concept placeholder</p>
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-5 text-white sm:p-9">
+                  <div><p className="micro-label text-white/55">{item.index} / {item.type}</p><h2 className="mt-3 text-4xl font-medium tracking-[-0.06em] sm:text-7xl">{item.title}</h2></div>
+                  <p className="micro-label hidden text-right text-white/60 sm:block">{item.year}<br />{item.signal}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-base leading-7 text-[var(--muted)]">{item.summary}</p>
-                <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--signal)]">Focus / {item.signal}</p>
+              <div className="grid gap-5 border-b border-[var(--foreground)] py-6 md:grid-cols-[0.65fr_1.35fr]">
+                <p className="micro-label text-[var(--muted)]">Context / Contribution</p>
+                <p className="max-w-2xl text-base leading-7 text-[var(--muted)]">{item.summary}</p>
               </div>
-              <div className="fine-grid relative min-h-48 overflow-hidden border border-[var(--line)] bg-[var(--paper)]">
-                <div className={`absolute left-6 top-6 size-3 rounded-full ${item.tone === "research" ? "bg-[var(--accent)]" : "bg-[var(--signal)]"}`} />
-                <div className="absolute left-0 top-1/2 h-px w-full bg-[var(--foreground)]/20" />
-                <div className={`absolute left-0 top-[calc(50%_-_1px)] h-[2px] w-2/3 ${item.tone === "research" ? "bg-[var(--accent)]" : "bg-[var(--signal)]"}`} />
-                <p className="absolute bottom-5 right-5 font-mono text-[8px] uppercase tracking-[0.15em] text-[var(--muted)]">Case / {item.index}</p>
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </section>
       <SiteFooter />
     </main>

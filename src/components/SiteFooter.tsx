@@ -2,16 +2,15 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--line)] bg-[var(--background)]">
-      <div className="page-shell grid gap-8 py-9 sm:grid-cols-[1fr_auto] sm:items-end">
+    <footer className="bg-[var(--deep)] text-white">
+      <div className="page-shell grid gap-10 py-10 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <Link href="/" className="font-serif text-xl italic">Mingyi Liu</Link>
-          <p className="mt-2 max-w-md text-xs leading-5 text-[var(--muted)]">Biomedical optics researcher. Former product manager and product designer.</p>
+          <Link href="/" className="text-xl font-semibold tracking-[-0.05em]">Mingyi Liu</Link>
+          <p className="mt-2 text-xs text-white/45">Biomedical optics researcher · Product manager · Designer</p>
         </div>
-        <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--muted)]">
-          <span>Zurich, Switzerland</span>
+        <div className="flex flex-wrap gap-x-6 gap-y-2 micro-label text-white/45">
           <span>© {new Date().getFullYear()}</span>
-          <Link href="mailto:hello@mingyiliu.com" className="text-[var(--foreground)]">Email ↗</Link>
+          <Link href="mailto:hello@mingyiliu.com" className="text-white">Email ↗</Link>
         </div>
       </div>
     </footer>
