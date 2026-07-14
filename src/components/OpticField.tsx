@@ -1,45 +1,42 @@
 export function OpticField() {
   return (
     <div
-      className="hairline-grid relative min-h-[440px] overflow-hidden rounded-[1.75rem] bg-[var(--deep)] text-white shadow-[0_28px_80px_rgba(16,35,29,0.18)] sm:min-h-[520px]"
+      className="fine-grid relative min-h-[470px] overflow-hidden border border-[var(--line)] bg-[var(--paper)] sm:min-h-[560px]"
       role="img"
-      aria-label="Abstract optical experiment with a laser beam, lens, and moving signals"
+      aria-label="A precise optical research diagram representing laser, lens, sample, and evidence"
     >
-      <div className="absolute left-6 top-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">
-        <span className="size-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]" />
-        Live optical field
+      <div className="flex items-center justify-between border-b border-[var(--line)] bg-[var(--paper)]/90 px-5 py-4 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--muted)]">
+        <span>Current practice / 01</span>
+        <span className="flex items-center gap-2"><span className="size-1.5 rounded-full bg-[var(--accent)]" /> Research active</span>
       </div>
 
-      <div className="absolute right-6 top-6 font-mono text-[10px] text-white/35">λ / 532 NM</div>
-
-      <div className="absolute left-[-8%] top-[41%] h-px w-[70%] rotate-[8deg] bg-[var(--accent)] optic-beam" />
-      <div className="absolute left-[50%] top-[48%] h-px w-[62%] -rotate-[13deg] bg-[var(--accent)] optic-beam" />
-
-      <div className="optic-float absolute left-[45%] top-[25%] h-[48%] w-11 rounded-[50%] border border-[var(--accent)] bg-[var(--accent)]/10 shadow-[0_0_45px_rgba(200,241,105,0.2)]">
-        <div className="absolute inset-y-4 left-1/2 w-px bg-[var(--accent)]/45" />
+      <div className="absolute left-6 top-24 sm:left-9">
+        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--accent)]">Doctoral research</p>
+        <p className="mt-2 max-w-[15rem] text-2xl font-medium leading-tight tracking-[-0.04em] sm:text-3xl">Biomedical optics &amp; laser systems</p>
       </div>
 
-      <div className="optic-orbit absolute -right-20 top-[21%] size-64 rounded-full border border-white/15 sm:-right-12 sm:size-80">
-        <span className="absolute left-1/2 top-[-4px] size-2 rounded-full bg-[var(--blue)] shadow-[0_0_16px_var(--blue)]" />
-        <div className="absolute inset-8 rounded-full border border-dashed border-white/10" />
+      <div className="absolute inset-x-0 top-[54%] h-px bg-[var(--foreground)]/20" />
+      <div className="research-beam absolute left-0 top-[calc(54%_-_1px)] h-[2px] w-[67%] bg-[var(--accent)] shadow-[0_0_9px_rgba(168,68,52,0.5)]" />
+
+      <div className="absolute left-[44%] top-[37%] h-[34%] w-9 rounded-[50%] border border-[var(--signal)] bg-[rgba(49,93,120,0.07)]">
+        <div className="absolute inset-y-3 left-1/2 w-px bg-[var(--signal)]/40" />
+        <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--signal)]">Lens</span>
       </div>
 
-      <div className="absolute bottom-28 left-7 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60 sm:left-9">
-        Input: complex systems
-      </div>
-      <div className="absolute bottom-28 right-7 rounded-full bg-[var(--accent)] px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--deep)] sm:right-9">
-        Output: clarity
+      <div className="absolute right-[18%] top-[42%] h-28 w-6 border-x border-[var(--foreground)]/45 bg-[var(--panel)]">
+        <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--muted)]">Sample</span>
+        <div className="research-scan absolute left-1/2 top-1/2 h-14 w-px -translate-y-1/2 bg-[var(--accent)]/70" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 grid grid-cols-3 border-t border-white/10 bg-black/10">
+      <div className="absolute bottom-0 left-0 right-0 grid grid-cols-3 border-t border-[var(--line)] bg-[var(--paper)]">
         {[
-          ["01", "Observe"],
-          ["02", "Frame"],
-          ["03", "Build"],
-        ].map(([index, label]) => (
-          <div key={index} className="border-r border-white/10 p-4 last:border-0 sm:p-5">
-            <p className="font-mono text-[9px] text-[var(--accent)]">{index}</p>
-            <p className="mt-1 text-xs font-medium text-white/80 sm:text-sm">{label}</p>
+          ["Question", "What matters?"],
+          ["Experiment", "What is true?"],
+          ["Evidence", "What holds?"],
+        ].map(([label, value], index) => (
+          <div key={label} className="border-r border-[var(--line)] p-4 last:border-0 sm:p-5">
+            <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--muted)]">0{index + 1} / {label}</p>
+            <p className="mt-2 text-[11px] font-medium sm:text-xs">{value}</p>
           </div>
         ))}
       </div>

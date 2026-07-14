@@ -1,43 +1,39 @@
 export const navigation = [
-  { label: "Work", href: "/work" },
+  { label: "Research & Work", href: "/work" },
   { label: "Build", href: "/build" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const featuredWork = [
   {
     index: "01",
-    title: "Douyin In-Car",
-    type: "Consumer product",
-    year: "ByteDance",
+    title: "LASER-Blade",
+    type: "Doctoral research",
+    year: "Current",
     summary:
-      "Led a 0-to-1 in-car short-video product across vehicle partners and embedded entertainment contexts.",
-    signal: "Automotive media",
-    accent: "#c8f169",
-    glyph: "PLAY",
+      "Biomedical laser research at the intersection of optical engineering, experimental evidence, and clinical relevance.",
+    signal: "Biomedical optics",
+    tone: "research",
   },
   {
     index: "02",
-    title: "Smart Truck Cockpit",
-    type: "Intelligent mobility",
-    year: "Inceptio",
+    title: "Douyin In-Car",
+    type: "Product management",
+    year: "ByteDance",
     summary:
-      "Designed product experiences for intelligent trucking, autonomous driving workflows, and fleet operations.",
-    signal: "Logistics systems",
-    accent: "#6675f7",
-    glyph: "MOVE",
+      "Led a 0-to-1 in-car short-video product across vehicle partners and embedded entertainment contexts.",
+    signal: "Consumer product / 0→1",
+    tone: "product",
   },
   {
     index: "03",
-    title: "LASER-Blade",
-    type: "Biomedical research",
-    year: "PhD",
+    title: "Smart Truck Cockpit",
+    type: "Product design & systems",
+    year: "Inceptio",
     summary:
-      "Exploring biomedical laser technologies where optics, engineering, and clinical usefulness meet.",
-    signal: "Biomedical optics",
-    accent: "#ff6542",
-    glyph: "LIGHT",
+      "Designed product experiences for intelligent trucking, autonomous driving workflows, and fleet operations.",
+    signal: "Intelligent mobility",
+    tone: "systems",
   },
 ];
 
@@ -47,26 +43,28 @@ export const buildItems = [
     title: "Subtitle Intelligence Tool",
     status: "Prototype",
     summary:
-      "A practical workflow for extracting, cleaning, translating, and reusing video knowledge.",
+      "A workflow for extracting, cleaning, translating, and reusing knowledge from video.",
   },
   {
     index: "B",
     title: "Optics Calculator",
     status: "Concept",
     summary:
-      "Small web tools for beam parameters, experimental planning, and research note taking.",
+      "Focused web tools for beam parameters, experimental planning, and research notes.",
   },
   {
     index: "C",
     title: "Personal Product Lab",
-    status: "Planned",
+    status: "Ongoing",
     summary:
-      "A growing collection of useful tools, experiments, and product ideas under one roof.",
+      "A collection of useful tools and product experiments developed through research and design practice.",
   },
 ];
 
-export const principles = [
-  { label: "Product", value: "From launch constraints to clear decisions" },
-  { label: "Research", value: "Depth in lasers, optics, and biomedicine" },
-  { label: "Build", value: "Ideas turned into tools people can use" },
+export const identity = [
+  { label: "Now", value: "PhD researcher", detail: "Biomedical optics & laser systems" },
+  { label: "Before", value: "Product manager & designer", detail: "ByteDance · Inceptio" },
+  { label: "Practice", value: "Research × design", detail: "Evidence translated into experience" },
 ];
+
+export const method = ["Observe", "Frame", "Prototype", "Validate"];

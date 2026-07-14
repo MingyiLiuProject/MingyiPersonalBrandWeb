@@ -8,16 +8,17 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(244,243,238,0.88)] backdrop-blur-xl">
-      <nav className="page-shell flex h-[72px] items-center justify-between gap-5">
-        <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label="Mingyi Liu, home">
-          <span className="grid size-9 place-items-center rounded-full bg-[var(--deep)] font-mono text-[10px] font-bold tracking-[-0.06em] text-[var(--accent)] transition-transform group-hover:rotate-6">
-            ML
+    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(242,240,233,0.92)] backdrop-blur-xl">
+      <nav className="page-shell flex h-[74px] items-center justify-between gap-5">
+        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Mingyi Liu, home">
+          <span className="grid size-8 place-items-center border border-[var(--foreground)] font-serif text-base italic">M</span>
+          <span className="hidden sm:block">
+            <strong className="block text-xs font-semibold tracking-[-0.01em]">Mingyi Liu</strong>
+            <span className="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--muted)]">Researcher &amp; designer</span>
           </span>
-          <span className="hidden text-sm font-semibold tracking-[-0.02em] sm:block">Mingyi Liu</span>
         </Link>
 
-        <div className="flex min-w-0 items-center gap-1 overflow-x-auto rounded-full border border-[var(--line)] bg-white/45 p-1">
+        <div className="flex min-w-0 items-center gap-5 overflow-x-auto sm:gap-8">
           {navigation.map((item) => {
             const active = pathname === item.href;
             return (
@@ -25,10 +26,10 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`whitespace-nowrap rounded-full px-3 py-2 text-xs font-medium transition sm:px-4 ${
+                className={`relative whitespace-nowrap py-2 text-[11px] font-medium transition after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:bg-[var(--foreground)] after:transition-transform ${
                   active
-                    ? "bg-[var(--deep)] text-white"
-                    : "text-[var(--muted)] hover:bg-white hover:text-[var(--foreground)]"
+                    ? "text-[var(--foreground)] after:scale-x-100"
+                    : "text-[var(--muted)] after:scale-x-0 hover:text-[var(--foreground)] hover:after:scale-x-100"
                 }`}
               >
                 {item.label}
@@ -37,12 +38,9 @@ export function SiteHeader() {
           })}
         </div>
 
-        <Link
-          href="/contact"
-          className="hidden shrink-0 items-center gap-2 text-xs font-semibold lg:flex"
-        >
-          <span className="size-2 rounded-full bg-[var(--accent-dark)] shadow-[0_0_0_4px_rgba(124,167,42,0.12)]" />
-          Available to connect
+        <Link href="/contact" className="group hidden shrink-0 items-center gap-2 text-[11px] font-semibold md:flex">
+          Contact
+          <span className="transition-transform group-hover:translate-x-1">↗</span>
         </Link>
       </nav>
     </header>

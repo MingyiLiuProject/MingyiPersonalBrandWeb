@@ -2,159 +2,143 @@ import Link from "next/link";
 import { OpticField } from "@/components/OpticField";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { buildItems, featuredWork, principles } from "@/data/site";
-
-const Arrow = () => (
-  <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4" fill="none">
-    <path d="M3 13 13 3M6 3h7v7" stroke="currentColor" strokeWidth="1.5" />
-  </svg>
-);
+import { buildItems, featuredWork, identity, method } from "@/data/site";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <main>
       <SiteHeader />
 
-      <section className="page-shell grid gap-12 pb-16 pt-12 lg:grid-cols-[1.04fr_0.96fr] lg:items-center lg:pb-24 lg:pt-16">
+      <section className="page-shell grid gap-14 pb-20 pt-14 lg:grid-cols-[1.04fr_0.96fr] lg:items-center lg:pb-28 lg:pt-20">
         <div>
-          <p className="eyebrow text-[var(--accent-dark)]">Product / Research / Build</p>
-          <h1 className="text-balance mt-8 max-w-4xl text-[clamp(3.65rem,7.5vw,7.4rem)] font-semibold leading-[0.86] tracking-[-0.075em]">
-            Building clarity at the edge of <span className="display-serif text-[var(--blue)]">product</span> &amp; science.
+          <p className="section-label text-[var(--accent)]">Mingyi Liu / PhD researcher &amp; product designer</p>
+          <h1 className="text-balance mt-8 max-w-4xl text-[clamp(3.7rem,7.6vw,7.3rem)] font-medium leading-[0.91] tracking-[-0.075em]">
+            I research <span className="display-serif text-[var(--accent)]">light.</span> I design how complexity becomes useful.
           </h1>
-          <p className="mt-8 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-            I&apos;m Mingyi — a product leader and biomedical optics researcher turning complex systems into useful, human tools.
+          <p className="mt-9 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+            Today, I&apos;m a PhD researcher in biomedical optics. Before academia, I built and designed products at ByteDance and Inceptio. Both practices begin with the same act: understanding the real problem.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <Link
-              href="/work"
-              className="group inline-flex items-center gap-3 rounded-full bg-[var(--deep)] px-5 py-3.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-[var(--blue)]"
-            >
-              Explore selected work
-              <span className="transition-transform group-hover:rotate-45"><Arrow /></span>
+          <div className="mt-9 flex flex-wrap items-center gap-5">
+            <Link href="/work" className="inline-flex items-center gap-3 bg-[var(--foreground)] px-5 py-3.5 text-xs font-semibold text-[var(--paper)] transition hover:bg-[var(--accent)]">
+              Explore research &amp; work <span>↗</span>
             </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center rounded-full border border-[var(--line)] bg-white/35 px-5 py-3.5 text-sm font-medium transition hover:border-[var(--foreground)] hover:bg-white"
-            >
-              More about me
-            </Link>
+            <Link href="/about" className="border-b border-[var(--foreground)] pb-1 text-xs font-semibold">Read my story</Link>
           </div>
         </div>
         <OpticField />
       </section>
 
-      <section className="border-y border-[var(--line)] bg-white/25">
+      <section className="border-y border-[var(--line)] bg-[var(--paper)]">
         <div className="page-shell grid md:grid-cols-3">
-          {principles.map((item, index) => (
-            <div
-              key={item.label}
-              className="grid grid-cols-[auto_1fr] gap-4 border-b border-[var(--line)] py-6 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
-            >
-              <span className="font-mono text-[10px] text-[var(--signal)]">0{index + 1}</span>
-              <div>
-                <p className="text-sm font-semibold">{item.label}</p>
-                <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{item.value}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="page-shell py-20 lg:py-28">
-        <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-end">
-          <div>
-            <p className="eyebrow text-[var(--signal)]">Selected work</p>
-            <h2 className="text-balance mt-5 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">
-              Built in the <span className="display-serif">real world.</span>
-            </h2>
-          </div>
-          <p className="max-w-lg text-sm leading-6 text-[var(--muted)] md:justify-self-end md:text-right">
-            Products and research shaped by actual launch constraints, complex stakeholders, and questions worth staying with.
-          </p>
-        </div>
-
-        <div className="mt-12 border-t border-[var(--foreground)]">
-          {featuredWork.map((item) => (
-            <article
-              key={item.title}
-              className="group grid gap-6 border-b border-[var(--line)] py-7 transition-colors hover:border-[var(--foreground)] md:grid-cols-[0.14fr_0.66fr_0.85fr_0.28fr] md:items-center md:py-9"
-            >
-              <p className="font-mono text-[11px] text-[var(--muted)]">{item.index}</p>
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--muted)]">
-                  {item.type} · {item.year}
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] transition-transform group-hover:translate-x-1 sm:text-3xl">
-                  {item.title}
-                </h3>
-              </div>
-              <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">{item.summary}</p>
-              <div className="flex items-center justify-between gap-4 md:justify-end">
-                <span
-                  className="rounded-full px-3 py-1.5 font-mono text-[9px] font-semibold uppercase tracking-[0.14em]"
-                  style={{ backgroundColor: item.accent }}
-                >
-                  {item.glyph}
-                </span>
-                <span className="grid size-9 place-items-center rounded-full border border-[var(--line)] transition group-hover:rotate-45 group-hover:border-[var(--foreground)] group-hover:bg-[var(--foreground)] group-hover:text-white">
-                  <Arrow />
-                </span>
-              </div>
+          {identity.map((item) => (
+            <article key={item.label} className="border-b border-[var(--line)] py-7 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+              <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--accent)]">{item.label}</p>
+              <p className="mt-3 text-base font-semibold tracking-[-0.025em]">{item.value}</p>
+              <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{item.detail}</p>
             </article>
           ))}
         </div>
-        <div className="mt-7 flex justify-end">
-          <Link href="/work" className="group inline-flex items-center gap-2 text-sm font-semibold">
-            View all work <span className="transition-transform group-hover:rotate-45"><Arrow /></span>
-          </Link>
-        </div>
       </section>
 
-      <section className="bg-[var(--accent)] text-[var(--deep)]">
-        <div className="page-shell py-20 lg:py-24">
-          <div className="grid gap-9 lg:grid-cols-[0.65fr_1.35fr]">
-            <div>
-              <p className="eyebrow">Build lab</p>
-              <h2 className="text-balance mt-5 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">
-                Small bets.<br /><span className="display-serif">Useful outcomes.</span>
-              </h2>
-              <Link href="/build" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold">
-                Enter the lab <Arrow />
-              </Link>
-            </div>
-            <div className="border-t border-[var(--deep)]">
-              {buildItems.map((item) => (
-                <article key={item.title} className="grid gap-4 border-b border-[var(--deep)]/30 py-6 sm:grid-cols-[2rem_1fr_auto] sm:items-start">
-                  <p className="font-mono text-[10px]">{item.index}</p>
-                  <div>
-                    <h3 className="text-xl font-semibold tracking-[-0.03em]">{item.title}</h3>
-                    <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--deep)]/65">{item.summary}</p>
-                  </div>
-                  <p className="w-fit rounded-full border border-[var(--deep)]/35 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.15em]">
-                    {item.status}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[var(--deep)] text-white">
-        <div className="page-shell flex flex-col items-start justify-between gap-10 py-20 md:flex-row md:items-end lg:py-28">
+      <section className="page-shell py-24 lg:py-32">
+        <div className="grid gap-12 lg:grid-cols-[0.45fr_1.55fr]">
+          <p className="section-label h-fit text-[var(--signal)]">Position</p>
           <div>
-            <p className="eyebrow text-[var(--accent)]">Start a conversation</p>
-            <h2 className="text-balance mt-6 max-w-3xl text-5xl font-semibold leading-[0.95] tracking-[-0.065em] sm:text-7xl">
-              Have a complex problem worth <span className="display-serif text-[var(--accent)]">untangling?</span>
-            </h2>
+            <p className="text-balance max-w-5xl text-4xl font-medium leading-[1.08] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
+              Research asks whether an idea is true. Product design asks whether it is useful. <span className="display-serif text-[var(--signal)]">My work holds both questions at once.</span>
+            </p>
+            <div className="mt-14 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
+              <article className="bg-[var(--paper)] p-7 sm:p-9">
+                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--accent)]">01 / Research</p>
+                <h2 className="mt-8 text-3xl font-medium tracking-[-0.045em]">Rigour before certainty.</h2>
+                <p className="mt-5 max-w-md text-sm leading-7 text-[var(--muted)]">Designing experiments, studying optical systems, and building evidence around biomedical laser technologies.</p>
+              </article>
+              <article className="bg-[var(--paper)] p-7 sm:p-9">
+                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--signal)]">02 / Product</p>
+                <h2 className="mt-8 text-3xl font-medium tracking-[-0.045em]">Clarity before features.</h2>
+                <p className="mt-5 max-w-md text-sm leading-7 text-[var(--muted)]">Framing product problems, aligning complex systems, and designing experiences that survive contact with the real world.</p>
+              </article>
+            </div>
           </div>
-          <Link
-            href="/contact"
-            className="group grid size-28 shrink-0 place-items-center rounded-full bg-[var(--signal)] text-[var(--deep)] transition hover:scale-105 sm:size-36"
-            aria-label="Contact Mingyi"
-          >
-            <span className="transition-transform group-hover:rotate-45"><Arrow /></span>
-          </Link>
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--line)] bg-[var(--panel)]">
+        <div className="page-shell py-24 lg:py-28">
+          <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+            <div>
+              <p className="section-label text-[var(--accent)]">Selected experience</p>
+              <h2 className="text-balance mt-6 text-4xl font-medium tracking-[-0.055em] sm:text-5xl">A career across <span className="display-serif">lab and launch.</span></h2>
+            </div>
+            <p className="max-w-lg text-sm leading-6 text-[var(--muted)] md:justify-self-end">Not a change of direction, but a deepening of practice: from designing product systems to investigating the physical systems beneath them.</p>
+          </div>
+
+          <div className="mt-14 border-t border-[var(--foreground)]">
+            {featuredWork.map((item) => (
+              <article key={item.title} className="group grid gap-5 border-b border-[var(--line)] py-8 lg:grid-cols-[0.12fr_0.55fr_0.82fr_0.32fr] lg:items-start lg:py-10">
+                <p className="font-mono text-[9px] text-[var(--muted)]">{item.index}</p>
+                <div>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--muted)]">{item.type}</p>
+                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">{item.title}</h3>
+                  <p className="mt-1 font-serif text-base italic text-[var(--accent)]">{item.year}</p>
+                </div>
+                <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">{item.summary}</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--signal)] lg:text-right">{item.signal}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-7 flex justify-end">
+            <Link href="/work" className="border-b border-[var(--foreground)] pb-1 text-xs font-semibold">View full archive ↗</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--deep)] text-[var(--paper)]">
+        <div className="page-shell grid gap-12 py-24 lg:grid-cols-[0.52fr_1.48fr] lg:py-28">
+          <div>
+            <p className="section-label text-[#c9b6aa]">One method</p>
+            <h2 className="text-balance mt-6 text-4xl font-medium tracking-[-0.055em]">From ambiguity to <span className="display-serif text-[#c9b6aa]">evidence.</span></h2>
+          </div>
+          <div className="grid grid-cols-2 border-l border-t border-white/20 md:grid-cols-4">
+            {method.map((item, index) => (
+              <div key={item} className="min-h-44 border-b border-r border-white/20 p-5">
+                <p className="font-mono text-[9px] text-white/40">0{index + 1}</p>
+                <p className="mt-20 text-sm font-medium">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-shell py-24 lg:py-28">
+        <div className="grid gap-12 lg:grid-cols-[0.55fr_1.45fr]">
+          <div>
+            <p className="section-label text-[var(--signal)]">Build notes</p>
+            <h2 className="mt-6 text-4xl font-medium tracking-[-0.055em]">Tools in progress.</h2>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-[var(--muted)]">Small products emerging from recurring research and knowledge-work problems.</p>
+          </div>
+          <div className="border-t border-[var(--foreground)]">
+            {buildItems.map((item) => (
+              <article key={item.title} className="grid gap-3 border-b border-[var(--line)] py-6 sm:grid-cols-[2rem_1fr_auto] sm:items-start">
+                <p className="font-mono text-[9px] text-[var(--accent)]">{item.index}</p>
+                <div>
+                  <h3 className="text-lg font-semibold tracking-[-0.025em]">{item.title}</h3>
+                  <p className="mt-2 max-w-xl text-xs leading-5 text-[var(--muted)]">{item.summary}</p>
+                </div>
+                <p className="w-fit font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--muted)]">{item.status}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[var(--line)] bg-[var(--paper)]">
+        <div className="page-shell flex flex-col items-start justify-between gap-10 py-20 md:flex-row md:items-end lg:py-24">
+          <div>
+            <p className="section-label text-[var(--accent)]">Open to thoughtful conversations</p>
+            <h2 className="text-balance mt-6 max-w-4xl text-5xl font-medium leading-[0.98] tracking-[-0.065em] sm:text-7xl">Research, products, or a difficult problem worth <span className="display-serif text-[var(--accent)]">understanding.</span></h2>
+          </div>
+          <Link href="/contact" className="shrink-0 bg-[var(--foreground)] px-6 py-4 text-xs font-semibold text-[var(--paper)]">Start a conversation ↗</Link>
         </div>
       </section>
 

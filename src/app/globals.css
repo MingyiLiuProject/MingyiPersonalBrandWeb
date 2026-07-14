@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f3ee;
-  --foreground: #10231d;
-  --muted: #66706b;
-  --line: #ccd1cb;
-  --panel: #e9ebe5;
-  --accent: #c8f169;
-  --accent-dark: #7ca72a;
-  --signal: #ff6542;
-  --blue: #6675f7;
-  --deep: #10231d;
+  --background: #f2f0e9;
+  --foreground: #1c211f;
+  --muted: #686b67;
+  --line: #cfccc1;
+  --panel: #e6e3da;
+  --paper: #f8f7f2;
+  --accent: #a84434;
+  --signal: #315d78;
+  --deep: #202a26;
 }
 
 @theme inline {
@@ -30,16 +29,14 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 75% -10%, rgba(200, 241, 105, 0.2), transparent 28rem),
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 ::selection {
-  background: var(--deep);
-  color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
 }
 
 a {
@@ -51,6 +48,11 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.page-shell {
+  margin-inline: auto;
+  width: min(100% - 3rem, 80rem);
+}
+
 .display-serif {
   font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
@@ -58,36 +60,20 @@ a {
   letter-spacing: -0.045em;
 }
 
-.hairline-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.page-shell {
-  margin-inline: auto;
-  width: min(100% - 2.5rem, 78rem);
-}
-
-.page-intro {
-  padding-block: clamp(4.5rem, 11vw, 9rem) clamp(3.5rem, 7vw, 6rem);
-}
-
-.eyebrow {
+.section-label {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.75rem;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
 }
 
-.eyebrow::before {
-  width: 1.8rem;
+.section-label::before {
+  width: 1.5rem;
   height: 1px;
   background: currentColor;
   content: "";
@@ -97,50 +83,56 @@ a {
   text-wrap: balance;
 }
 
-.optic-beam {
-  animation: beam-pulse 4s ease-in-out infinite;
-  transform-origin: left center;
+.fine-grid {
+  background-image:
+    linear-gradient(rgba(28, 33, 31, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 33, 31, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-.optic-orbit {
-  animation: orbit-spin 18s linear infinite;
+.dark-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-.optic-float {
-  animation: optic-float 6s ease-in-out infinite;
+.research-beam {
+  animation: beam-breathe 5s ease-in-out infinite;
 }
 
-@keyframes beam-pulse {
+.research-scan {
+  animation: scan 7s ease-in-out infinite;
+}
+
+@keyframes beam-breathe {
   0%,
   100% {
-    filter: drop-shadow(0 0 5px rgba(200, 241, 105, 0.6));
-    opacity: 0.72;
+    opacity: 0.55;
   }
   50% {
-    filter: drop-shadow(0 0 13px rgba(200, 241, 105, 0.95));
     opacity: 1;
   }
 }
 
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes optic-float {
+@keyframes scan {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateX(-22px);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateX(110px);
   }
 }
 
 @media (max-width: 640px) {
   .page-shell {
-    width: min(100% - 2rem, 78rem);
+    width: min(100% - 2rem, 80rem);
   }
 }
 

@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mingyi Liu — Product, Research, Build",
+    default: "Mingyi Liu — Biomedical Optics Researcher & Product Designer",
     template: "%s — Mingyi Liu",
   },
   description:
-    "Mingyi Liu builds products, researches biomedical laser technologies, and turns ideas into practical tools.",
+    "Mingyi Liu is a biomedical optics PhD researcher and former product manager and product designer at ByteDance and Inceptio.",
 };
 
 export default function RootLayout({
