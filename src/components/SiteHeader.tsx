@@ -8,18 +8,34 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header>
-      <nav className="page-shell flex min-h-20 items-center justify-between gap-5 py-4">
-        <Link href="/" className="display-serif text-xl font-semibold tracking-[-0.035em]" aria-label="Mingyi Liu, home">
-          Mingyi<span className="text-[var(--accent)]">.</span>
+    <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-white/80 backdrop-blur-xl">
+      <nav className="page-shell flex min-h-[72px] items-center justify-between gap-4 py-3">
+        <Link href="/" className="group flex shrink-0 items-center gap-2" aria-label="Mingyi Liu, home">
+          <span className="display-serif text-xl font-semibold tracking-[-0.035em]">
+            Mingyi<span className="text-[var(--accent)]">.</span>
+          </span>
+          <span className="status-dot hidden size-1.5 rounded-full bg-[var(--accent)] sm:block" aria-hidden="true" />
         </Link>
-        <div className="flex min-w-0 items-center gap-4 overflow-x-auto text-xs sm:gap-6">
+        <div className="hide-scrollbar flex min-w-0 items-center gap-1 overflow-x-auto text-xs">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} className={`soft-link whitespace-nowrap ${pathname === item.href ? "font-semibold text-[var(--foreground)]" : "text-[var(--muted)]"}`}>
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={pathname === item.href ? "page" : undefined}
+              className="nav-link whitespace-nowrap"
+              data-active={pathname === item.href}
+            >
               {item.label}
             </Link>
           ))}
-          <Link href="/contact" className="soft-link whitespace-nowrap text-[var(--muted)]">Contact</Link>
+          <Link
+            href="/contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            className="nav-link whitespace-nowrap"
+            data-active={pathname === "/contact"}
+          >
+            Contact
+          </Link>
         </div>
       </nav>
     </header>

@@ -32,7 +32,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <div className="site-canvas">{children}</div>
+      </body>
     </html>
   );
 }
