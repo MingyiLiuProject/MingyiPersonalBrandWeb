@@ -2,6 +2,7 @@ export const navigation = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Build", href: "/build" },
+  { label: "Products", href: "/youdu" },
 ];
 
 export const featuredWork = [
@@ -38,9 +39,10 @@ export const featuredWork = [
 ];
 
 export const buildItems = [
-  { index: "A", title: "Subtitle Intelligence", status: "Prototype", summary: "Extracting, cleaning, translating, and reusing knowledge from video." },
-  { index: "B", title: "Optics Calculator", status: "Concept", summary: "Focused tools for beam parameters, experimental planning, and research notes." },
-  { index: "C", title: "Personal Product Lab", status: "Ongoing", summary: "A collection of useful tools developed through research and design practice." },
+  { index: "A", title: "Toxic to Furry Friends?", status: "Web app", summary: "把复杂的日常风险，翻译成能看懂、能行动的答案。", href: "/youdu" },
+  { index: "B", title: "Subtitle Intelligence", status: "Prototype", summary: "Extracting, cleaning, translating, and reusing knowledge from video.", href: "/build" },
+  { index: "C", title: "Optics Calculator", status: "Concept", summary: "Focused tools for beam parameters, experimental planning, and research notes.", href: "/build" },
+  { index: "D", title: "Personal Product Lab", status: "Ongoing", summary: "A collection of useful tools developed through research and design practice.", href: "/build" },
 ];
 
 export const method = ["Observe closely", "Frame clearly", "Make tangibly", "Validate honestly"];
