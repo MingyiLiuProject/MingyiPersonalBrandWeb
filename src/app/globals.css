@@ -206,11 +206,11 @@ a {
   content: "";
 }
 
-.youdu-hero {
+.plant-hero {
   background:
-    radial-gradient(circle at 86% 18%, rgba(216, 255, 99, 0.72), transparent 19rem),
-    radial-gradient(circle at 72% 88%, rgba(214, 231, 201, 0.6), transparent 21rem),
-    linear-gradient(135deg, #f7f8f3 0%, #f3f5ed 100%);
+    radial-gradient(circle at 88% 16%, rgba(107, 145, 92, 0.2), transparent 18rem),
+    radial-gradient(circle at 12% 84%, rgba(255, 253, 245, 0.9), transparent 20rem),
+    #f7f5e8;
 }
 
 @keyframes status-pulse {
