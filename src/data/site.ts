@@ -2,7 +2,7 @@ export const navigation = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Build", href: "/build" },
-  { label: "Products", href: "/youdu" },
+  { label: "Products", href: "https://toxictofurryfriends.mingyiliu.com" },
 ];
 
 export const featuredWork = [
@@ -39,7 +39,7 @@ export const featuredWork = [
 ];
 
 export const buildItems = [
-  { index: "A", title: "Toxic to Furry Friends?", status: "Web app", summary: "查询 1,023 种常见植物对猫、狗和马的潜在毒性。", href: "/youdu" },
+  { index: "A", title: "Toxic to Furry Friends?", status: "Web app", summary: "查询 1,023 种常见植物对猫、狗和马的潜在毒性。", href: "https://toxictofurryfriends.mingyiliu.com" },
   { index: "B", title: "Subtitle Intelligence", status: "Prototype", summary: "Extracting, cleaning, translating, and reusing knowledge from video.", href: "/build" },
   { index: "C", title: "Optics Calculator", status: "Concept", summary: "Focused tools for beam parameters, experimental planning, and research notes.", href: "/build" },
   { index: "D", title: "Personal Product Lab", status: "Ongoing", summary: "A collection of useful tools developed through research and design practice.", href: "/build" },

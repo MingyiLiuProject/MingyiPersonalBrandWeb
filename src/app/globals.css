@@ -206,13 +206,6 @@ a {
   content: "";
 }
 
-.plant-hero {
-  background:
-    radial-gradient(circle at 88% 16%, rgba(107, 145, 92, 0.2), transparent 18rem),
-    radial-gradient(circle at 12% 84%, rgba(255, 253, 245, 0.9), transparent 20rem),
-    #f7f5e8;
-}
-
 @keyframes status-pulse {
   70%,
   100% {
