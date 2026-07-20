@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { YouduApp } from "./YouduApp";
 
 export const metadata: Metadata = {
-  title: "Toxic to Furry Friends?｜宠物日常风险查询",
-  description: "输入一种成分、材料或使用场景，快速理解它的日常风险与安全边界。",
+  title: "Toxic to Furry Friends?｜宠物植物毒性查询",
+  description: "查询常见植物对猫、狗和马的潜在毒性，查看毒性成分、临床表现与应急信息。",
 };
 
 export default function YouduPage() {
